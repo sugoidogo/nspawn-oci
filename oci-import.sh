@@ -22,7 +22,7 @@ skopeo copy "$source" oci:"$skopeo_output":latest
 
 umoci_output=$workdir/$hostname
 rm -rf "$umoci_output"
-umoci --verbose unpack --image "$skopeo_output" "$umoci_output"
+umoci --verbose unpack --image "$skopeo_output" "$umoci_output" --keep-dirlinks
 
 oci_config=$umoci_output/config.json
 
