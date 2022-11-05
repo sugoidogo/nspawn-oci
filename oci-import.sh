@@ -13,13 +13,14 @@ hostname=$hostname
 convert=$convert
 end
 
-mkdir -p /run/nspawn-oci
+workdir=/dev/shm/nspawn-oci
+mkdir -p $workdir
 
-skopeo_output=$(echo /run/nspawn-oci/$source | sed s.://./.g)
+skopeo_output=$(echo $workdir/$source | sed s.://./.g)
 #mkdir -p $skopeo_output
 #skopeo copy $source oci:$skopeo_output:latest
 
-umoci_output=/run/nspawn-oci/$hostname
+umoci_output=$workdir/$hostname
 #rm -rf $umoci_output
 #umoci --verbose unpack --image $skopeo_output $umoci_output
 
