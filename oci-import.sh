@@ -17,12 +17,12 @@ workdir=/dev/shm/nspawn-oci
 mkdir -p $workdir
 
 skopeo_output=$(echo $workdir/$source | sed s.://./.g)
-#mkdir -p $skopeo_output
-#skopeo copy $source oci:$skopeo_output:latest
+mkdir -p $skopeo_output
+skopeo copy $source oci:$skopeo_output:latest
 
 umoci_output=$workdir/$hostname
-#rm -rf $umoci_output
-#umoci --verbose unpack --image $skopeo_output $umoci_output
+rm -rf $umoci_output
+umoci --verbose unpack --image $skopeo_output $umoci_output
 
 oci_config=$umoci_output/config.json
 
