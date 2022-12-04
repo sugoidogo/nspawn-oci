@@ -24,7 +24,8 @@ import.sh $SOURCE $HOSTNAME [--convert|-c]
 
 `$SOURCE` can be any supported [container transport](https://github.com/containers/image/blob/main/docs/containers-transports.5.md)
 
-`$HOSTNAME` may consist of only letters, digits, and the hyphen (`-`) symbol, and has a maximum length of 15 characters.
+`$HOSTNAME` must be suitable for use as a hostname following a conservative subset of DNS and UNIX/Linux semantics.
+See [machinectl documentation](https://www.freedesktop.org/software/systemd/man/machinectl.html#Machine%20and%20Image%20Names) for details.
 
 `--convert` will read a subset of the OCI `config.json` and install an equivalent `.nspawn` file. If the container has empty mount ponts, you will be prompted for a bind point.
 
@@ -58,4 +59,7 @@ only the rootfs is imported and an [`.nspawn`](https://www.freedesktop.org/softw
 - [Process Parameters](https://www.freedesktop.org/software/systemd/man/systemd.nspawn.html#Parameters=)
 - [Bind Mounts](https://www.freedesktop.org/software/systemd/man/systemd.nspawn.html#Bind=)
 
-Two additional options are added, [`ProcessTwo=true`](https://www.freedesktop.org/software/systemd/man/systemd.nspawn.html) and [`VirtualEthernet=no`](https://www.freedesktop.org/software/systemd/man/systemd.nspawn.html#VirtualEthernet=)
+Two additional options are added,
+[`ProcessTwo=true`](https://www.freedesktop.org/software/systemd/man/systemd.nspawn.html#ProcessTwo=:~:text=the%20specified%20program%20is%20run%20as%20PID%202.%20A%20stub%20init%20process%20is%20run%20as%20PID%201)
+and
+[`VirtualEthernet=no`](https://wiki.archlinux.org/title/systemd-nspawn#Use_host_networking)
