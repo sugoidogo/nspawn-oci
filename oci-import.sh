@@ -13,7 +13,7 @@ hostname=$hostname
 convert=$convert
 end
 
-workdir=/tmp/nspawn-oci
+workdir=~/.nspawn-oci
 mkdir -p $workdir
 
 skopeo_output=$(echo $workdir/$source | sed s.://./.g)
