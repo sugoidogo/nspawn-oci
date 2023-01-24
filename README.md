@@ -59,7 +59,7 @@ only the rootfs is imported and an [`.nspawn`](https://www.freedesktop.org/softw
 - [Process Parameters](https://www.freedesktop.org/software/systemd/man/systemd.nspawn.html#Parameters=)
 - [Bind Mounts](https://www.freedesktop.org/software/systemd/man/systemd.nspawn.html#Bind=)
 
-Two additional options are added,
-[`ProcessTwo=true`](https://www.freedesktop.org/software/systemd/man/systemd.nspawn.html#ProcessTwo=:~:text=the%20specified%20program%20is%20run%20as%20PID%202.%20A%20stub%20init%20process%20is%20run%20as%20PID%201)
-and
-[`VirtualEthernet=no`](https://wiki.archlinux.org/title/systemd-nspawn#Use_host_networking)
+Three additional options are added,
+[`ProcessTwo=true`](https://www.freedesktop.org/software/systemd/man/systemd.nspawn.html#ProcessTwo=:~:text=the%20specified%20program%20is%20run%20as%20PID%202.%20A%20stub%20init%20process%20is%20run%20as%20PID%201),
+[`VirtualEthernet=no`](https://wiki.archlinux.org/title/systemd-nspawn#Use_host_networking),
+and `PrivateUsers=false`
