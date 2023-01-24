@@ -34,6 +34,7 @@ nspawn_config=/etc/systemd/nspawn/$hostname.nspawn
 cat << end > "$nspawn_config"
 [Exec]
 ProcessTwo=true
+PrivateUsers=false
 end
 
 for environment in $(jq --compact-output '.process.env' "$oci_config" | sed "s/[][]//g;s/\"//g;s/,/ /g")
